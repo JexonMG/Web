@@ -1,0 +1,41 @@
+.App-header {
+  width: 100%;
+  background-image: url(https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/03/521755-selva-amazonica-extensa-planeta.jpg?tf=3840x);
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  height: 900px;
+  gap: 100px;
+  color: white;
+}
+
+
+.App{
+  text-align: center;
+  width: 100%;
+}
+
+.botonReptil{
+  background-color: #282c34;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.botonReptil:hover{
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+.botonReptil:active{
+  background-color: #282c34;
+  color: white;
+}
