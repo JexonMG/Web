@@ -16,10 +16,10 @@ export default function BasicTable(datos) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table" size='small'>
             <TableHead>
             <TableRow>
-                <TableCell>Nombre</TableCell>
-                <TableCell align="right">Sobrenombre</TableCell>
-                <TableCell align="center">Foto</TableCell>
-                <TableCell align="right">Mejor amigo</TableCell>
+                <TableCell>Foto</TableCell>
+                <TableCell align="center">Nombre</TableCell>
+                <TableCell align="center">Sobrenombre</TableCell>
+                <TableCell align="center">Mejor amigo</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -36,14 +36,12 @@ export default function BasicTable(datos) {
                 key={row.nombre}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                <TableCell component="th" scope="row">
-                  {row.nombre}
-                </TableCell>
-                <TableCell align="right">{row.sobrenombre}</TableCell>
                 <TableCell align="center">
                   <Avatar alt={row.sobrenombre} src={row.foto}  sx={{ display: 'flex', justifyContent: 'center' }}/>
                 </TableCell>
-                <TableCell align="right">{row.mejorAmigo ? 'Si' : 'No'}</TableCell>
+                <TableCell align="center">{row.nombre}</TableCell>
+                <TableCell align="center">{row.sobrenombre}</TableCell>
+                <TableCell align="center">{row.mejorAmigo ? 'Si' : 'No'}</TableCell>
                 </TableRow>
             )))}
             </TableBody>

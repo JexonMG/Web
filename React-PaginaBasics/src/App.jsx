@@ -18,8 +18,10 @@ import Table from '@mui/material/Table'
 import BasicTable from './assets/Table'
 import BarraDeApp from './assets/BarraDeApp'
 import React, { useState, useEffect } from 'react';
+import Alert from '@mui/material/Alert'
+import AlertMessage from './assets/AlertMessage'
 
-//Shawncito, 
+
 
 function App() {
   const [nombre, setnombre] = useState('')
@@ -27,6 +29,7 @@ function App() {
   const [foto, setfoto] = useState('')
   const [checked, setChecked] = useState(false);
   const [datos, setDatos] = useState([])
+  const [alert, setAlert] = useState({ message: '', severity: '' });
 
   const handleChange = (setTextValue) => (event) => {
     setTextValue(event.target.value);
@@ -36,22 +39,35 @@ function App() {
     setChecked(event.target.checked);
   };
 
+  // TODO: Implementar funcion para verificar si usuario ya se encuentra registrado
+  // TODO: Implementar funcion para guardar datos en localStorage
+  // TODO: Implementar funcion para eliminar usuarios de la tabla
+
+
+
+
+  
   const guardar = () => {
-    nombre === '' || sobrenombre === '' || foto === '' ? alert('Faltan datos') :
-    setDatos([...datos, {nombre, sobrenombre, foto, mejorAmigo: checked}])
+    nombre === '' || sobrenombre === '' || foto === '' ? 
+    setAlert({ message: 'Todos los campos son obligatorios', severity: 'error' }) 
+    :
+    (setDatos([...datos, {nombre, sobrenombre, foto, mejorAmigo: checked}]),
+    setAlert({ message: 'Correcto', severity: 'success' })) 
   }
+  
 
   console.log( nombre)
   console.log(sobrenombre)
   console.log(foto)
   console.log(checked)
-
+  // ! Mejorar sintaxis de JSX haciendo multiples componentes
   return (
     <div>
       <Grid>
         <BarraDeApp/>
         <div className='Main' style={{ padding: '20px' }}>
         <Card>
+          {alert.message && <AlertMessage message={alert.message} severity={alert.severity} />}
           <Typography>
             <h3>Agregar nuevo</h3>
             </Typography>
