@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 
 export default function BasicTable(datos) {
-
+    // * Tabla de usuarios
     return (
         <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" size='small'>
@@ -25,8 +25,8 @@ export default function BasicTable(datos) {
             <TableBody>
             {datos.value.length === 0 ? (<TableRow>
                 <TableCell colSpan={4} align="center">
-                    <Typography>
-                        No hay datos
+                    <Typography variant="h4" gutterBottom>
+                        No hay datos 😱
                     </Typography>
                 </TableCell>
                 </TableRow>):
@@ -37,7 +37,7 @@ export default function BasicTable(datos) {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell align="center">
-                  <Avatar alt={row.sobrenombre} src={row.foto}  sx={{ display: 'flex', justifyContent: 'center' }}/>
+                  <Avatar alt={row.sobrenombre} src={`https://unavatar.io/${row.foto}`}  sx={{ display: 'flex', justifyContent: 'center' }}/>
                 </TableCell>
                 <TableCell align="center">{row.nombre}</TableCell>
                 <TableCell align="center">{row.sobrenombre}</TableCell>

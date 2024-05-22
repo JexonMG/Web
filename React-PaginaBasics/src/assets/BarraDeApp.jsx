@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/icons-material/Menu';
 
 export default function BarraDeApp() {
+  // * Barra de navegación
   return (
     <AppBar position="static">
     <Toolbar variant="dense">

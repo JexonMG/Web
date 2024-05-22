@@ -20,10 +20,11 @@ import BarraDeApp from './assets/BarraDeApp'
 import React, { useState, useEffect } from 'react';
 import Alert from '@mui/material/Alert'
 import AlertMessage from './assets/AlertMessage'
-
+import Box from '@mui/material/Box'
 
 
 function App() {
+  // * Hooks de estado
   const [nombre, setnombre] = useState('')
   const [sobrenombre, setsobrenombre] = useState('')
   const [foto, setfoto] = useState('')
@@ -31,58 +32,68 @@ function App() {
   const [datos, setDatos] = useState([])
   const [alert, setAlert] = useState({ message: '', severity: '' });
 
+  // * Función para actualizar los inputs en el estado
   const handleChange = (setTextValue) => (event) => {
     setTextValue(event.target.value);
+    setAlert({ message: '', severity: '' })
   };
 
+  // * Función para actualizar el estado del switch
   const handleChangeSwitch = (event) => {
     setChecked(event.target.checked);
   };
 
   // TODO: Implementar funcion para verificar si usuario ya se encuentra registrado
+  // * CHECKED
+  
   // TODO: Implementar funcion para guardar datos en localStorage
+  // 
+
   // TODO: Implementar funcion para eliminar usuarios de la tabla
 
 
 
 
-  
+  // * Función para guardar los datos en el estado
   const guardar = () => {
+    // * Verificar si el usuario ya se encuentra registrado
+    const usuario = datos.find((usuario) => usuario.nombre === nombre)
+    usuario ? setAlert({ message: 'El usuario ya se encuentra registrado', severity: 'error' }) :
+
+    // * Verificar si los campos están vacíos
     nombre === '' || sobrenombre === '' || foto === '' ? 
     setAlert({ message: 'Todos los campos son obligatorios', severity: 'error' }) 
     :
     (setDatos([...datos, {nombre, sobrenombre, foto, mejorAmigo: checked}]),
-    setAlert({ message: 'Correcto', severity: 'success' })) 
+    setAlert({ message: 'Datos guardados.', severity: 'success' })) 
   }
   
-
-  console.log( nombre)
-  console.log(sobrenombre)
-  console.log(foto)
-  console.log(checked)
   // ! Mejorar sintaxis de JSX haciendo multiples componentes
+  // * Estrucutra de la aplicación
   return (
     <div>
       <Grid>
         <BarraDeApp/>
         <div className='Main' style={{ padding: '20px' }}>
-        <Card>
+        <Card >
           {alert.message && <AlertMessage message={alert.message} severity={alert.severity} />}
           <Typography>
             <h3>Agregar nuevo</h3>
             </Typography>
-          <div className='Main'>
+            <Stack spacing={6} direction= "row">
               <TextField label='Nombre' variant='outlined' value={nombre} onChange={handleChange(setnombre)}/>
               <TextField label='Sobrenombre' variant='outlined' value={sobrenombre} onChange={handleChange(setsobrenombre)}/>
-              <TextField label='Foto' variant='outlined' value={foto} onChange={handleChange(setfoto)}/>
+              <TextField label='Usuario de GitHub' variant='outlined' value={foto} onChange={handleChange(setfoto)}/>
 
-          </div>  
+            </Stack> 
           <Stack direction="row" spacing={1} alignItems="center">
             <Switch onChange={handleChangeSwitch}/>
             <FormLabel>¿Es mejor amigo?</FormLabel>
           </Stack>
-          <Stack spacing={2}>
-            <Button size='small' variant='contained' onClick={guardar}>GUARDAR</Button>
+          <Stack spacing={2} >
+            <Box sx={{ width: 'auto' }} >
+              <Button size='medium' variant='contained' onClick={guardar}>GUARDAR</Button>
+            </Box>
             <BasicTable value= {datos}/>
             </Stack>
         </Card>
