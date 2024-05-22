@@ -17,7 +17,7 @@ import FormLabel from '@mui/material/FormLabel'
 import Table from '@mui/material/Table'
 import BasicTable from './assets/Table'
 import BarraDeApp from './assets/BarraDeApp'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import Alert from '@mui/material/Alert'
 import AlertMessage from './assets/AlertMessage'
 import Box from '@mui/material/Box'
@@ -31,6 +31,7 @@ function App() {
   const [checked, setChecked] = useState(false);
   const [datos, setDatos] = useState([])
   const [alert, setAlert] = useState({ message: '', severity: '' });
+  const audioRef = useRef(null);
 
   // * Función para actualizar los inputs en el estado
   const handleChangeInputs = (setTextValue) => (event) => {
@@ -42,6 +43,8 @@ function App() {
   const handleChangeSwitch = (event) => {
     setChecked(event.target.checked);
   };
+
+
 
   // TODO: Implementar funcion para verificar si usuario ya se encuentra registrado
   // * CHECKED
@@ -72,7 +75,9 @@ function App() {
     confetti(),
     setnombre(''),
     setsobrenombre(''),
-    setfoto(''))
+    setfoto(''),
+    audioRef.current.volume = 0.2,
+    audioRef.current.play())
   }
   
   // ! Mejorar sintaxis de JSX haciendo multiples componentes
@@ -100,7 +105,8 @@ function App() {
           <Stack spacing={5} >
             <Stack spacing={2} direction="row">
               <Button size='medium' variant='contained' onClick={guardar}>GUARDAR</Button>
-              <Button size='medium' variant='contained' onClick={borrarDatos}>BORRAR DATOS</Button>
+              <audio ref={audioRef} src="/assets/fnafsound.m4a" type="audio/m4a" />
+              <Button size='medium' variant='outlined' color="error" onClick={borrarDatos}>BORRAR DATOS</Button>
             </Stack>
             <Typography>
               <h3><strong>Lista de amigos</strong></h3>
