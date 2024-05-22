@@ -21,7 +21,7 @@ import React, { useState, useEffect } from 'react';
 import Alert from '@mui/material/Alert'
 import AlertMessage from './assets/AlertMessage'
 import Box from '@mui/material/Box'
-
+import confetti from 'canvas-confetti'
 
 function App() {
   // * Hooks de estado
@@ -33,7 +33,7 @@ function App() {
   const [alert, setAlert] = useState({ message: '', severity: '' });
 
   // * Función para actualizar los inputs en el estado
-  const handleChange = (setTextValue) => (event) => {
+  const handleChangeInputs = (setTextValue) => (event) => {
     setTextValue(event.target.value);
     setAlert({ message: '', severity: '' })
   };
@@ -51,8 +51,11 @@ function App() {
 
   // TODO: Implementar funcion para eliminar usuarios de la tabla
 
-
-
+  const borrarDatos = () => {
+    datos.length === 0 ? setAlert({ message: 'No hay datos para eliminar.', severity: 'error' }) :
+    (setDatos([]),
+    setAlert({ message: 'Datos eliminados con éxito.', severity: 'success' }))
+  }
 
   // * Función para guardar los datos en el estado
   const guardar = () => {
@@ -65,7 +68,11 @@ function App() {
     setAlert({ message: 'Todos los campos son obligatorios', severity: 'error' }) 
     :
     (setDatos([...datos, {nombre, sobrenombre, foto, mejorAmigo: checked}]),
-    setAlert({ message: 'Datos guardados.', severity: 'success' })) 
+    setAlert({ message: 'Datos guardados.', severity: 'success' }), 
+    confetti(),
+    setnombre(''),
+    setsobrenombre(''),
+    setfoto(''))
   }
   
   // ! Mejorar sintaxis de JSX haciendo multiples componentes
@@ -78,22 +85,26 @@ function App() {
         <Card >
           {alert.message && <AlertMessage message={alert.message} severity={alert.severity} />}
           <Typography>
-            <h3>Agregar nuevo</h3>
+            <h3>Agregar nuevo amigo</h3>
             </Typography>
             <Stack spacing={6} direction= "row">
-              <TextField label='Nombre' variant='outlined' value={nombre} onChange={handleChange(setnombre)}/>
-              <TextField label='Sobrenombre' variant='outlined' value={sobrenombre} onChange={handleChange(setsobrenombre)}/>
-              <TextField label='Usuario de GitHub' variant='outlined' value={foto} onChange={handleChange(setfoto)}/>
+              <TextField label='Nombre' variant='outlined' value={nombre} onChange={handleChangeInputs(setnombre)}/>
+              <TextField label='Sobrenombre' variant='outlined' value={sobrenombre} onChange={handleChangeInputs(setsobrenombre)}/>
+              <TextField label='Usuario de GitHub' variant='outlined' value={foto} onChange={handleChangeInputs(setfoto)}/>
 
             </Stack> 
           <Stack direction="row" spacing={1} alignItems="center">
             <Switch onChange={handleChangeSwitch}/>
             <FormLabel>¿Es mejor amigo?</FormLabel>
           </Stack>
-          <Stack spacing={2} >
-            <Box sx={{ width: 'auto' }} >
+          <Stack spacing={5} >
+            <Stack spacing={2} direction="row">
               <Button size='medium' variant='contained' onClick={guardar}>GUARDAR</Button>
-            </Box>
+              <Button size='medium' variant='contained' onClick={borrarDatos}>BORRAR DATOS</Button>
+            </Stack>
+            <Typography>
+              <h3><strong>Lista de amigos</strong></h3>
+            </Typography>
             <BasicTable value= {datos}/>
             </Stack>
         </Card>
