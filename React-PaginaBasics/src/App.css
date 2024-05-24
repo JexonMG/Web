@@ -17,7 +17,10 @@ header{
 }
 
 .Main{
-  margin: 10px; 
-  padding: 10px; 
-  gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cardStyles{
+  padding : 20px;
 }

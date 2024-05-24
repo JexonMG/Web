@@ -87,7 +87,9 @@ function App() {
       <Grid>
         <BarraDeApp/>
         <div className='Main' style={{ padding: '20px' }}>
-        <Card >
+        <Card>
+          <div className='cardStyles'>
+          <Paper>
           {alert.message && <AlertMessage message={alert.message} severity={alert.severity} />}
           <Typography>
             <h3>Agregar nuevo amigo</h3>
@@ -113,6 +115,10 @@ function App() {
             </Typography>
             <BasicTable datos = {datos} setDatos ={setDatos}/>
             </Stack>
+
+          </Paper>
+          </div>
+          
         </Card>
         </div>
       </Grid>
