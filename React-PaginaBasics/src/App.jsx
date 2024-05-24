@@ -72,12 +72,12 @@ function App() {
     :
     (setDatos([...datos, {nombre, sobrenombre, foto, mejorAmigo: checked}]),
     setAlert({ message: 'Datos guardados.', severity: 'success' }), 
+    audioRef.current.volume = 0.2,
+    audioRef.current.play(),
     confetti(),
     setnombre(''),
     setsobrenombre(''),
-    setfoto(''),
-    audioRef.current.volume = 0.2,
-    audioRef.current.play())
+    setfoto(''))
   }
   
   // ! Mejorar sintaxis de JSX haciendo multiples componentes
@@ -111,7 +111,7 @@ function App() {
             <Typography>
               <h3><strong>Lista de amigos</strong></h3>
             </Typography>
-            <BasicTable value= {datos}/>
+            <BasicTable datos = {datos} setDatos ={setDatos}/>
             </Stack>
         </Card>
         </div>

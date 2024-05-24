@@ -6,11 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
-
-export default function BasicTable(datos) {
+import Box from '@mui/material/Box';
+export default function BasicTable({datos, setDatos}) {
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -21,6 +21,9 @@ export default function BasicTable(datos) {
           fontSize: 14,
         },
       }));
+
+
+
     /*
     const eliminarRow = (nombre, sobrenombre, foto, mejorAmigo) => {
         return () => {
@@ -29,7 +32,7 @@ export default function BasicTable(datos) {
     }
                 <StyledTableCell align="center"></StyledTableCell>
 
-                    <TableCell align="center"><button onClick={eliminarRow(row.nombre, row.sobrenombre, row.foto, row.mejorAmigo)}>Eliminar</button></TableCell>
+                    
 
     */
     // * Tabla de usuarios
@@ -42,17 +45,25 @@ export default function BasicTable(datos) {
                 <StyledTableCell align="center">Nombre</StyledTableCell>
                 <StyledTableCell align="center">Sobrenombre</StyledTableCell>
                 <StyledTableCell align="center">Mejor amigo</StyledTableCell>
+                <StyledTableCell align="center"> </StyledTableCell>
             </TableRow>
             </TableHead>
             <TableBody>
-            {datos.value.length === 0 ? (<TableRow>
+            {datos.length === 0 ? (<TableRow>
                 <TableCell colSpan={4} align="center">
-                    <Typography variant="h5" gutterBottom>
-                        <strong>No hay amigos 😱</strong>
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    height="10vh" // Ajusta la altura según sea necesario
+                    >
+                    <Typography variant="h5">
+                        <strong>No hay amigos 😭</strong>
                     </Typography>
+                    </Box>
                 </TableCell>
                 </TableRow>):
-            (datos.value.map((row) => (
+            (datos.map((row) => (
 
                 <TableRow
                 key={row.nombre}
@@ -64,6 +75,7 @@ export default function BasicTable(datos) {
                 <TableCell align="center">{row.nombre}</TableCell>
                 <TableCell align="center">{row.sobrenombre}</TableCell>
                 <TableCell align="center">{row.mejorAmigo ? 'Si' : 'No'}</TableCell>
+                <TableCell align="center"><Button size='small' variant='outlined' color='error' onClick={() => {setDatos(datos.filter(a => a.nombre !== row.nombre))}}>ELiminar</Button></TableCell>
                 </TableRow>
             )))}
             </TableBody>
