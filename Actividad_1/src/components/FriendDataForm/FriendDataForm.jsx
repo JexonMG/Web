@@ -3,6 +3,7 @@ import { Button, FormGroup, FormControlLabel, TextField, Switch } from '@mui/mat
 
 import './styles.css';
 
+
 const FriendDataForm = ({guardar, name, setName, nickname, setNickname, picture, setPicture, isBestFriend, setIsBestFriend, borrarDatos} ) => {
   return(
     <div className="friend-data-form-wrapper">
@@ -14,7 +15,7 @@ const FriendDataForm = ({guardar, name, setName, nickname, setNickname, picture,
       <FormGroup>
         <FormControlLabel control={<Switch checked={isBestFriend} onChange={(e) => setIsBestFriend(e.target.checked)} />} label="Es mejor amigo" />
       </FormGroup>
-      <div>
+      <div className='buttons'>
         <Button variant="contained" onClick={guardar}>Guardar</Button>
         <Button size='medium' variant='outlined' color="error" onClick={borrarDatos}>BORRAR DATOS</Button>
       </div>

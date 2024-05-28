@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paper, Alert, Typography } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
@@ -15,11 +15,15 @@ const Home = () => {
   const [nickname, setNickname] = useState('');
   const [picture, setPicture] = useState('');
   const [isBestFriend, setIsBestFriend] = useState(false);
-  const [datos, setDatos] = useState([])
+  const [datos, setDatos] = useState(null)
   const [snackBar, setsnackBar] = useState('');
   const [open, setOpen] = useState(false);
 
-  
+  useEffect(() => {
+    fetch('http://localhost:8000/friends')
+    .then(response =>{ return response.json()})
+    .then(data => {setDatos(data)})
+  },[])
 
   const borrarDatos = () => {
     datos.length === 0 ? setAlert({ message: 'No hay datos para eliminar.', severity: 'error' }) :
@@ -31,17 +35,29 @@ const Home = () => {
     setOpen(false);
   };
 
+
+  // ? Agregar un nuevo amigo a la base de datos json-server
+  const addFriend = () => {
+    fetch('http://localhost:8000/friends', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({name, nickname, picture, isBestFriend}),
+    })
+  }
   const guardar = () => {
     // * Verificar si los campos están vacíos
     name === '' || nickname === '' || picture === '' ? 
     setIncompleteForm({ message: 'Todos los campos son obligatorios', severity: 'error' }) 
     :
-    (setDatos([...datos, {name, nickname, picture, mejorAmigo: isBestFriend}]),
+    (setDatos([...datos, {name, nickname, picture, isBestFriend}]),
+    addFriend(),
     setsnackBar("Amigo guardo con éxito."),
     console.log(snackBar),
     setOpen(true));
     // * Verificar si los campos están vacíos}
-
+  
   }
   return(
     <div>
@@ -52,7 +68,7 @@ const Home = () => {
           <div className="home_wrapper">
             <Typography variant='h4'>Agregar Nuevo</Typography>
             <FriendDataForm guardar={guardar} name={name} setName={setName} nickname={nickname} setNickname={setNickname} picture={picture} setPicture={setPicture} isBestFriend={isBestFriend} setIsBestFriend={setIsBestFriend} borrarDatos= {borrarDatos}/>
-            <FriendTable datos= {datos} setDatos={setDatos}/>
+            {datos && <FriendTable datos= {datos} setDatos={setDatos}/>}
           </div>
         </Paper>
       </PageWrapper>
