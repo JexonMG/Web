@@ -11,6 +11,15 @@ import Button from '@mui/material/Button';
 
 
 const FriendTable = ({datos, setDatos}) => {
+
+  const deleteFriend = (id) => {
+    fetch(`http://localhost:8000/friends/${id}`, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -35,7 +44,7 @@ const FriendTable = ({datos, setDatos}) => {
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.nickname}</TableCell>
               <TableCell align="right">{row.isBestFriend ? 'Si' : 'No'}</TableCell>
-              <TableCell align="center"><Button size='small' variant='outlined' color='error' onClick={() => {setDatos(datos.filter(a => a.name !== row.name))}}>ELiminar</Button></TableCell>
+              <TableCell align="center"><Button size='small' variant='outlined' color='error' onClick={() => {(setDatos(datos.filter(a => a.name !== row.name, deleteFriend(row.id))))}}>ELiminar</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
