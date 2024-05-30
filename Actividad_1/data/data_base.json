@@ -8,11 +8,11 @@
       "is_best_friend": true
     },
     {
-      "id": "1",
-      "name": "Maria",
-      "nickname": "Mari",
-      "image_url": "https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg",
-      "is_best_friend": false
+      "id": "86c5",
+      "name": "asd",
+      "nickname": "asd",
+      "picture": "asd",
+      "isBestFriend": false
     }
   ]
 }

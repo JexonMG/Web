@@ -19,24 +19,39 @@ const Home = () => {
   const [snackBar, setsnackBar] = useState('');
   const [open, setOpen] = useState(false);
 
+  // * Obtener los datos de la base de datos json-server
   useEffect(() => {
     fetch('http://localhost:8000/friends')
     .then(response =>{ return response.json()})
     .then(data => {setDatos(data)})
   },[])
 
-  const borrarDatos = () => {
+  // * Borrar los datos de la tabla "datos"
+  const borrarDatos =  () => {
     datos.length === 0 ? setAlert({ message: 'No hay datos para eliminar.', severity: 'error' }) :
     (setDatos([]),
+    deleteAllFriends(),
     setIncompleteForm({ message: 'Datos eliminados con éxito.', severity: 'success' }))
   }
 
+  // * Cerrar el snackbar
   const handleClose = () => {
     setOpen(false);
   };
+  
+  // TODO: Implementar la función deleteAllFriends, está incompleta
+  const deleteAllFriends = async () => {
+    const response = await fetch('http://localhost:8000/friends', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([]),
+    })
+  }
 
 
-  // ? Agregar un nuevo amigo a la base de datos json-server
+  // * Agregar un nuevo amigo a la base de datos json-server
   const addFriend = () => {
     fetch('http://localhost:8000/friends', {
       method: 'POST',
@@ -46,6 +61,11 @@ const Home = () => {
       body: JSON.stringify({name, nickname, picture, isBestFriend}),
     })
   }
+
+
+
+
+  // * Guardar los datos en la base de datos json-server
   const guardar = () => {
     // * Verificar si los campos están vacíos
     name === '' || nickname === '' || picture === '' ? 
@@ -59,6 +79,7 @@ const Home = () => {
     // * Verificar si los campos están vacíos}
   
   }
+  // * Estrucutra de la página
   return(
     <div>
       <NavBar />
@@ -66,8 +87,8 @@ const Home = () => {
         {incompleteForm.message && <Alert severity={incompleteForm.severity}>{incompleteForm.message}</Alert>}
         <Paper>
           <div className="home_wrapper">
-            <Typography variant='h4'>Agregar Nuevo</Typography>
-            <FriendDataForm guardar={guardar} name={name} setName={setName} nickname={nickname} setNickname={setNickname} picture={picture} setPicture={setPicture} isBestFriend={isBestFriend} setIsBestFriend={setIsBestFriend} borrarDatos= {borrarDatos}/>
+            <Typography  sx={{ fontSize: 'clamp(16px, 3.5vw, 24px)' }} variant='h4'>Agregar Nuevo</Typography>
+            {datos && <FriendDataForm guardar={guardar} name={name} setName={setName} nickname={nickname} setNickname={setNickname} picture={picture} setPicture={setPicture} isBestFriend={isBestFriend} setIsBestFriend={setIsBestFriend} borrarDatos= {borrarDatos}/>}
             {datos && <FriendTable datos= {datos} setDatos={setDatos}/>}
           </div>
         </Paper>
