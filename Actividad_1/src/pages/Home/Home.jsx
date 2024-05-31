@@ -39,17 +39,16 @@ const Home = () => {
     setOpen(false);
   };
   
-  // TODO: Implementar la función deleteAllFriends, está incompleta
-  const deleteAllFriends = async () => {
-    const response = await fetch('http://localhost:8000/friends', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify([]),
+  // ! Implementar la función deleteAllFriends, está incompleta
+  const deleteAllFriends = (id) => {
+    {datos.map((row) => (
+    fetch(`http://localhost:8000/friends/${row.id}`, {
+      method: 'DELETE',
     })
+    .then(response => response.json())
+    .then(data => console.log(data))
+  ))}
   }
-
 
   // * Agregar un nuevo amigo a la base de datos json-server
   const addFriend = () => {

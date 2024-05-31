@@ -1,18 +1,3 @@
 {
-  "friends": [
-    {
-      "id": "0",
-      "name": "Pedro",
-      "nickname": "Taza",
-      "image_url": "https://st.depositphotos.com/1771835/2740/i/950/depositphotos_27406433-stock-photo-happy-man-thumbs-up-sign.jpg",
-      "is_best_friend": true
-    },
-    {
-      "id": "86c5",
-      "name": "asd",
-      "nickname": "asd",
-      "picture": "asd",
-      "isBestFriend": false
-    }
-  ]
+  "friends": []
 }

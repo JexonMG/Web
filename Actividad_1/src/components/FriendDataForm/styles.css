@@ -17,20 +17,6 @@
   gap: 8px;
 }
 
-.textfield-wrapper {
-  width: clamp(100px, 10vw, 600px);
-}
-
-.textfield-input {
-  height: clamp(50px, 5vh, 60px);
-  width: clamp(80px, 10vw, 600px);
-}
-
-.textfield-wrapper .MuiInputLabel-root {
-  font-size: clamp(12px, 2vw, 18px);
-  display: flex;
-
-}
 
 .switch-wrapper .MuiFormControlLabel-label {
   font-size: clamp(12px, 2vw, 20px) !important;
@@ -40,11 +26,8 @@
 }
 
 
-.button-wrapper {
+.friend-data-form-text-fields{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: clamp(80px, 10vw, 600px); 
-  height: clamp(50px, 5vh, 60px);
+  flex-direction: column;
+  gap: 24px;
 }
-
