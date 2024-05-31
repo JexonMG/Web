@@ -39,7 +39,7 @@ const Home = () => {
     setOpen(false);
   };
   
-  // ! Implementar la función deleteAllFriends, está incompleta
+  
   const deleteAllFriends = (id) => {
     {datos.map((row) => (
     fetch(`http://localhost:8000/friends/${row.id}`, {
