@@ -13,11 +13,11 @@ const FriendDataForm = ({guardar, name, setName, nickname, setNickname, picture,
        <TextField  className="textfield-wrapper" InputProps={{className: 'textfield-input',}} InputLabelProps={{className: 'textfield-label',}} id="outlined-basic" label="Foto" variant="outlined" value={picture} onChange={(e) => setPicture(e.target.value)} />
       </div>
       <FormGroup>
-        <FormControlLabel className="switch-wrapper" control={<Switch checked={isBestFriend} onChange={(e) => setIsBestFriend(e.target.checked)} />} label="Es mejor amigo" />
+        <FormControlLabel className="switch-wrapper" control={<Switch checked={isBestFriend} onChange={(e) => setIsBestFriend(e.target.checked)} />} label="¿Es mejor amigo?" />
       </FormGroup>
       <div className='buttons'>
         <Button className="button-wrapper" variant="contained" onClick={guardar}>Guardar</Button>
-        <Button className="button-wrapper" size='medium' variant='outlined' color="error" onClick={borrarDatos}>BORRAR DATOS</Button>
+        <Button className="button-wrapper" size='medium' variant='outlined' color="error" onClick={borrarDatos}>BORRAR AMIGOS</Button>
       </div>
     </div>
   );

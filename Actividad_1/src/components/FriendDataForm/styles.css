@@ -19,7 +19,7 @@
 
 
 .switch-wrapper .MuiFormControlLabel-label {
-  font-size: clamp(12px, 2vw, 20px) !important;
+  font-size: clamp(12px, 2vw, 18px) !important;
   display: flex;
   align-items: center;
   text-align: center;

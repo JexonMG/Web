@@ -66,6 +66,9 @@ const Home = () => {
 
   // * Guardar los datos en la base de datos json-server
   const guardar = () => {
+    // * Verificar si el usuario ya se encuentra registrado
+    const usuario = datos.find((usuario) => usuario.name === name)
+    usuario ? setIncompleteForm({ message: 'El amigo ya se encuentra registrado', severity: 'error' }) :
     // * Verificar si los campos están vacíos
     name === '' || nickname === '' || picture === '' ? 
     setIncompleteForm({ message: 'Todos los campos son obligatorios', severity: 'error' }) 
@@ -74,7 +77,10 @@ const Home = () => {
     addFriend(),
     setsnackBar("Amigo guardo con éxito."),
     console.log(snackBar),
-    setOpen(true));
+    setOpen(true),
+    setName(''),
+    setNickname(''),
+    setPicture(''));
     // * Verificar si los campos están vacíos}
   
   }
