@@ -28,7 +28,7 @@ const Home = () => {
 
   // * Borrar los datos de la tabla "datos"
   const borrarDatos =  () => {
-    datos.length === 0 ? setAlert({ message: 'No hay datos para eliminar.', severity: 'error' }) :
+    datos.length === 0 ? setIncompleteForm({ message: 'No hay datos para eliminar.', severity: 'error' }) :
     (setDatos([]),
     deleteAllFriends(),
     setIncompleteForm({ message: 'Datos eliminados con éxito.', severity: 'success' }))
@@ -92,7 +92,7 @@ const Home = () => {
         {incompleteForm.message && <Alert severity={incompleteForm.severity}>{incompleteForm.message}</Alert>}
         <Paper>
           <div className="home_wrapper">
-            <Typography  sx={{ fontSize: 'clamp(16px, 3.5vw, 24px)' }} variant='h4'>Agregar Nuevo</Typography>
+            <Typography  sx={{ fontSize: 'clamp(16px, 3.5vw, 24px)' }} variant='h4'>Agregar nuevo amigo</Typography>
             {datos && <FriendDataForm guardar={guardar} name={name} setName={setName} nickname={nickname} setNickname={setNickname} picture={picture} setPicture={setPicture} isBestFriend={isBestFriend} setIsBestFriend={setIsBestFriend} borrarDatos= {borrarDatos}/>}
             {datos && <FriendTable datos= {datos} setDatos={setDatos}/>}
           </div>

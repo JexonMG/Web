@@ -1,0 +1,3 @@
+comandos
+npm run dev
+npx json-server --watch data/data_base.json --port 8000

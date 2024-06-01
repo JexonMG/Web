@@ -38,8 +38,8 @@ const FriendTable = ({datos, setDatos}) => {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell align="left">
-                <Avatar src={row.picture} />
+              <TableCell align="center">
+                <Avatar alt={row.nickname} src={`https://unavatar.io/${row.picture}`}  sx={{ display: 'flex', justifyContent: 'center' }}/>
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.nickname}</TableCell>

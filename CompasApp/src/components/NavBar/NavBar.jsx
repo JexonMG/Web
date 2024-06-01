@@ -21,7 +21,7 @@ const NavBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography  variant="h6" component="div" sx={{ flexGrow: 1 , fontSize: 'clamp(16px, 3.5vw, 22px)' }}>
-            ¯\_(ツ)_/¯  CompasApp
+            CompasApp
           </Typography>
         </Toolbar>
       </AppBar>
