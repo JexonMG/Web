@@ -6,12 +6,17 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div id="error-page">
-      <h1>¡Oops!</h1>
-      <p>Lo sentimos, un error inesperado a ocurrido.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+    <div className="error-page">
+      <div className="error-container">
+        <div className="error-content">
+          <h1 className="error-code">Oops!</h1>
+          <p className="error-message">Lo sentimos, un error inesperado ha ocurrido.</p>
+          <p>
+            <i>{error.statusText || error.message}</i>
+          </p>
+          <a href="/" className="home-link">Ir a la página principal</a>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /* ErrorPage.css */
-body {
+.error-page {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #1f4037, #f29999);
@@ -25,12 +25,14 @@ body {
   .error-code {
     font-size: 120px;
     margin: 0;
+    color: #fff;
     font-weight: bold;
     background: -webkit-linear-gradient(45deg, #f3ec78, #af4261);
-    -webkit-text-fill-color: transparent;
+
   }
   
   .error-message {
+    color: #fff;
     font-size: 24px;
     margin: 20px 0;
   }
