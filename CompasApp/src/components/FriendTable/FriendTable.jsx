@@ -44,7 +44,7 @@ const FriendTable = ({datos, setDatos}) => {
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.nickname}</TableCell>
               <TableCell align="right">{row.isBestFriend ? 'Si' : 'No'}</TableCell>
-              <TableCell align="center"><Button size='small' variant='outlined' color='error' onClick={() => {(setDatos(datos.filter(a => a.id !== row.id, deleteFriend(row.id))))}}>ELiminar</Button></TableCell>
+              <TableCell align="center"><Button size='small' variant='contained' color='error' onClick={() => {(setDatos(datos.filter(a => a.id !== row.id, deleteFriend(row.id))))}}>ELiminar</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
