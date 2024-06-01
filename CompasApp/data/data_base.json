@@ -1,11 +1,18 @@
 {
   "friends": [
     {
-      "id": "82b2",
-      "name": "aa",
-      "nickname": "aa",
+      "id": "1174",
+      "name": "Valeria",
+      "nickname": "Vale",
+      "picture": "valeriaysl",
+      "isBestFriend": true
+    },
+    {
+      "id": "2ace",
+      "name": "Jexon",
+      "nickname": "Jexon",
       "picture": "JexonMG",
-      "isBestFriend": false
+      "isBestFriend": true
     }
   ]
 }
