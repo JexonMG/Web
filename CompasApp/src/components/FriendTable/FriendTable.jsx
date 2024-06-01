@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 
 const FriendTable = ({datos, setDatos}) => {
@@ -20,6 +21,9 @@ const FriendTable = ({datos, setDatos}) => {
     .then(data => console.log(data))
   }
 
+  //             <Link to={`/${row.name}`} style={{ textDecoration: 'none', color: 'black' }}/>
+
+  
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -33,21 +37,29 @@ const FriendTable = ({datos, setDatos}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {datos.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell align="center">
-                <Avatar alt={row.nickname} src={`https://unavatar.io/${row.picture}`}  sx={{ display: 'flex', justifyContent: 'center' }}/>
-              </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.nickname}</TableCell>
-              <TableCell align="right">{row.isBestFriend ? 'Si' : 'No'}</TableCell>
-              <TableCell align="center"><Button size='small' variant='contained' color='error' onClick={() => {(setDatos(datos.filter(a => a.id !== row.id, deleteFriend(row.id))))}}>ELiminar</Button></TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        {datos.map((row) => (
+          <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell align="center">
+              <Link to={`/${row.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Avatar alt={row.nickname} src={`https://unavatar.io/${row.picture}`} sx={{ display: 'flex', justifyContent: 'center' }} />
+              </Link>
+            </TableCell>
+            <TableCell align="right">
+              <Link to={`/${row.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                {row.name}
+              </Link>
+            </TableCell>
+            <TableCell align="right">{row.nickname}</TableCell>
+            <TableCell align="right">{row.isBestFriend ? 'Si' : 'No'}</TableCell>
+            <TableCell align="center">
+              <Button size='small' variant='contained' color='error' onClick={() => {(setDatos(datos.filter(a => a.id !== row.id, deleteFriend(row.id))))}}>
+                ELiminar
+              </Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+
       </Table>
     </TableContainer>
   );

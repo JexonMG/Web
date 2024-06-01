@@ -4,21 +4,25 @@ import Home from './pages/Home/Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/Error/Error_page';
 import data_base from '../data/data_base.json';
+import Amigo_Page from './pages/Amigo_Page/Amigo_Page';
 
-const router = createBrowserRouter([
+
+const routes = [
   {
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
   },
-]);
+];
 
-data_base.forEach((amigo) => {
-  router.push({
-    path: amigo.nombre,
-    element: element,
+data_base.friends.forEach((amigo) => {
+  routes.push({
+    path: amigo.name,
+    element: <Amigo_Page amigo={amigo} />,
   });
 });
+
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

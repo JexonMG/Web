@@ -1,10 +1,52 @@
 {
   "friends": [
     {
-      "id": "2ace",
+      "id": "d06e",
       "name": "Jexon",
-      "nickname": "Jexon",
+      "nickname": "Jex",
       "picture": "JexonMG",
+      "isBestFriend": true
+    },
+    {
+      "id": "7522",
+      "name": "Valeria",
+      "nickname": "Vale",
+      "picture": "valeriaysl",
+      "isBestFriend": true
+    },
+    {
+      "id": "8213",
+      "name": "Reyshawn",
+      "nickname": "Shawn",
+      "picture": "shawncito",
+      "isBestFriend": true
+    },
+    {
+      "id": "d7ba",
+      "name": "Gabriel",
+      "nickname": "Gabi",
+      "picture": "Gabriela-srmnt",
+      "isBestFriend": true
+    },
+    {
+      "id": "5eac",
+      "name": "Eddie",
+      "nickname": "Edi",
+      "picture": "eaponce18",
+      "isBestFriend": true
+    },
+    {
+      "id": "88b3",
+      "name": "Eduardo Martinez",
+      "nickname": "Eduardo",
+      "picture": "ed-mart",
+      "isBestFriend": true
+    },
+    {
+      "id": "1b09",
+      "name": "Edwin Nelson",
+      "nickname": "Edwin",
+      "picture": "EdwinDavidNelson",
       "isBestFriend": true
     }
   ]
