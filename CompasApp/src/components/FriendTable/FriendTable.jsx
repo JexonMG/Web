@@ -40,12 +40,12 @@ const FriendTable = ({datos, setDatos}) => {
         {datos.map((row) => (
           <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell align="center">
-              <Link to={`/${row.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to={row.name} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Avatar alt={row.nickname} src={`https://unavatar.io/${row.picture}`} sx={{ display: 'flex', justifyContent: 'center' }} />
               </Link>
             </TableCell>
             <TableCell align="right">
-              <Link to={`/${row.name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to={row.name} style={{ textDecoration: 'none', color: 'inherit' }}>
                 {row.name}
               </Link>
             </TableCell>
