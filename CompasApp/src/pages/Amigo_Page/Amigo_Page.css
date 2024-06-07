@@ -1,57 +1,57 @@
+.amigo-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e0e0e0;
+}
+
+.amigo-page-card {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(to bottom, #c8cee7, #ffffff);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.amigo-page-avatar {
+  width: 150px !important;
+  height: 150px !important;
+  margin: 20px auto;
+  border: 6px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 
-.amigo-page {
-    text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 600px;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .amigo-page h1 {
-    font-family: 'Arial', sans-serif;
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
-  
-  .amigo-page img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 6px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .amigo-page p {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  
-  .amigo-page a {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
+.amigo-page-button {
+  font-size: 18px;
+  margin-top: 20px;
+  background-color: #0fbc54 !important;
+  color: white;
+  box-shadow: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
 
-  .amigo-page {
-    background-image: linear-gradient(to bottom, #cccccc, #474747);
-    color: #fff;
-    padding: 30px;
-  }
-  
-  .amigo-page h1 {
-    font-size: 36px;
-  }
-  
-  .amigo-page p {
-    font-size: 20px;
-  }
-  
+.amigo-page-button:hover {
+  background-color: #bec7d1 !important;
+  transform: scale(1.05);
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.amigo-page h1 {
+  font-size: 36px;
+}
+
+.amigo-page p {
+  font-size: 20px;
+}
