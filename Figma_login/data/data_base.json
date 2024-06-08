@@ -1,0 +1,30 @@
+{
+  "estudiantes": [
+    {
+      "id": "d06e",
+      "carnet": "230115",
+      "password": "1234"
+    }
+  ],
+  "guardias": [
+    {
+      "id": "2",
+      "carnet": "guardia",
+      "password": "1234"
+    }
+  ],
+  "monitores": [
+    {
+      "id": "3",
+      "carnet": "monitoreo",
+      "password": "1234"
+    }
+  ],
+  "Admin": [
+    {
+      "id": "4",
+      "carnet": "Admin",
+      "password": "1234"
+    }
+  ]
+}

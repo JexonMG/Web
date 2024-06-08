@@ -1,0 +1,28 @@
+
+
+.paper-wrapper {
+    padding: 10px;
+    padding-left: 50px; /* Espacio solo a los lados izquierdo y derecho */
+    padding-right: 50px;
+}
+
+.content-wrapper {
+    margin-top: 10px; /* Margen superior para el contenido dentro del Paper */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bottomText-wrapper {
+    margin-top: 30px; /* Margen superior para el contenido dentro del Paper */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.button-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
